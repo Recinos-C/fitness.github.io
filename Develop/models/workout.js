@@ -43,4 +43,4 @@ const Workout = mongoose.model("Workout", workoutSchema);
 // try export the item as object error will proceed to not record on schema 
 // if it is not an object 
 // try run after linked
-module.exports = {Workout};
+module.exports = Workout;

@@ -10,7 +10,7 @@ router.post("/api/workouts", (req, res) => {
 });
 
 // capture items by id
-app.put("/api/workouts/:id", function (req, res) {
+router.put("/api/workouts/:id", function (req, res) {
     Workout.findByIdAndUpdate(req.params.id, {
         $push: {
             workouts: req.body
@@ -34,7 +34,7 @@ router.get("/api/workouts", (req, res) => {
 });
 
 // deletes by id (body id not req id) (same doc as update but use word delete)
-app.put("/api/workouts/:id", function (req, res) {
+router.put("/api/workouts/:id", function (req, res) {
     // do not use dbWorkout since we are deleting information
     Workout.findByIdAndDelete(req.body.id).then(() => {
         res.json(dbWorkout)
@@ -43,7 +43,7 @@ app.put("/api/workouts/:id", function (req, res) {
     });
 });
 
-
+module.exports = router;
 // research limit doc
 // item should scale on how many are searched
 
